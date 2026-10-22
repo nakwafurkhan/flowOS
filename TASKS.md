@@ -39,7 +39,7 @@ planning status.
                  contributor                                    
                  process                                        
 
-  INT-001        Implement        IN PROGRESS    Dev agent      GOV-002,
+  INT-001        Implement        IN REVIEW      Dev agent      GOV-002,
                  read-only                                      GOV-005,
                  ERPNext API                                    DEC-007
                  adapter                                        

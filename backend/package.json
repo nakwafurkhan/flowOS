@@ -1,0 +1,15 @@
+{
+  "name": "flowos-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Credit Balance Check Bot backend - read-only ERPNext integration",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
