@@ -39,12 +39,12 @@ planning status.
                  contributor                                    
                  process                                        
 
-  INT-001        Implement        READY          TBD            GOV-002,
-                 read-only                                      GOV-005
-                 ERPNext API                                    
+  INT-001        Implement        IN PROGRESS    Dev agent      GOV-002,
+                 read-only                                      GOV-005,
+                 ERPNext API                                    DEC-007
                  adapter                                        
 
-  INT-002        Implement        BLOCKED        TBD            INT-001
+  INT-002        Implement        IN PROGRESS    Dev agent      INT-001
                  customer lookup                                
                  and                                            
                  disambiguation                                 
@@ -61,7 +61,7 @@ planning status.
                  reconciliation                                 
                  tests                                          
 
-  FIN-003        Approve and      READY          Finance owner  GOV-004
+  FIN-003        Approve and      IN PROGRESS    Finance owner  GOV-004
                  implement credit                / developer    
                  exposure formula                               
 
@@ -93,3 +93,69 @@ Before work starts, record the assignee and branch in the task row or
 task issue. Avoid assigning overlapping file ownership to parallel
 agents. Every task needs acceptance criteria, tests and a review owner
 before it is marked `READY`.
+
+## Owner-approved acceptance criteria
+
+### INT-001 --- Read-only ERPNext API adapter (OPENED, Phase 1)
+
+Owner approval recorded in `DECISIONS.md` (DEC-007, 2026-10-22).
+
+**Scope (in):** A server-side adapter that talks to ERPNext read-only for
+`Customer`, `Sales Invoice`, `Payment Entry`, `Sales Order` and
+`Delivery Note` doctypes, using the approved least-privilege API-key
+integration pattern.
+
+**Scope (out):** No writes, no live ERPNext connection, no production
+credentials, no real customer data, no credit-status computation.
+
+**Acceptance criteria:**
+-   Adapter authenticates with ERPNext API key/secret from environment
+    variables (make no real network call in tests).
+-   Transport is abstracted so tests run against synthetic fixtures.
+-   Read-only methods cover: customer search/lookup, sales invoices,
+    payment entries, sales orders, delivery notes.
+-   Requests enforce explicit doctype/field/filter lists and pagination.
+-   Handles and maps failures: HTTP errors, timeouts, missing
+    credentials, empty results — and surfaces them as typed errors, not
+    zero balances.
+-   No credentials or raw payloads are logged.
+-   Tests run against synthetic fixtures only and pass.
+
+**Tests:** mocked-API unit/integration tests in `backend/tests`.
+**Review owner:** Human maintainer.
+
+### FIN-001 --- Select authoritative receivables source and filters
+
+Finance owner to record in `DECISIONS.md` the exact ERPNext
+Accounts Receivable report, filters, date boundary and company/party
+settings used as the source of truth for balances and ageing.
+
+**Acceptance criteria:**
+-   Approved receivables source + filter set recorded in
+    `DECISIONS.md`.
+-   Reconciliation cases defined for representative customers.
+
+### FIN-003 --- Approve and implement credit exposure formula
+
+Formula already accepted in DEC-004. This task confirms the ERPNext
+field/status mapping (Sales Order statuses `To Deliver and Bill` /
+`To Bill`, unbilled Delivery Notes) and implements it.
+
+**Acceptance criteria:**
+-   Field/status mapping for exposure components confirmed against the
+    target instance configuration.
+-   Deterministic implementation with reconciliation tests.
+-   Missing credit limit surfaces as unknown (not zero).
+
+### UI-001 --- Design customer search and summary views
+
+**Acceptance criteria:**
+-   Wireframes/mockups (synthetic data only) for customer search,
+    disambiguation and summary views.
+-   Includes empty, ambiguous and error states.
+-   Review owner approves before frontend build.
+
+## Branch assignments
+
+-   `feat/INT-001-erpnext-api-adapter` --- INT-001 (current)
+-   INT-002, FIN-003, UI-001 branches to be created when owners assign.

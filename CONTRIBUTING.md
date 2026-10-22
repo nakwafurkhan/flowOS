@@ -39,3 +39,17 @@ A human maintainer reviews every change. The author/agent must not
 self-merge to the protected main branch. Architecture, scope, credit
 rules, authentication and data-handling changes require explicit owner
 review.
+
+## GitHub host configuration (GOV-006)
+
+The repository is published to GitHub as `nakwafurkhan/flowOS`.
+
+-   `main` is protected: direct pushes are disabled.
+-   All changes arrive through pull requests from task branches.
+-   PRs require at least one human reviewer approval.
+-   CI checks (when added) must pass before merge.
+-   No force pushes or history rewrites on shared branches.
+-   The owner is the only maintainer who merges to `main`.
+
+Local agents should add the remote once and push task branches with:
+`git push -u origin <branch>`.

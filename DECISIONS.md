@@ -101,3 +101,26 @@ architecture. New entries are proposed until explicitly marked
 -   **Decision:** The LLM receives strictly typed, sanitized schemas containing only necessary fields (customer name, ID, outstanding balance, credit status, and overdue invoice list). Credentials, raw database access, and unrestricted methods are never exposed to the LLM.
 -   **Consequences and risks:** Prevents data leakage and prompt injection risks while preserving conversational usability.
 -   **Follow-up tasks:** AI-001, SEC-001
+
+## DEC-007 --- Owner Approval to Begin Phase 1 Implementation
+
+-   **Status:** ACCEPTED
+-   **Date:** 2026-10-22
+-   **Owner/approver:** Human project owner
+-   **Context:** Phase 0 governance and requirements (charter, spec,
+    architecture, business rules, Git workflow) are complete and the exit
+    gate has been met. The project reaches the point where Phase 1 can
+    open.
+-   **Options considered:** Keep planning status and defer; begin Phase 1
+    implementation on an approved basis.
+-   **Decision:** The owner approves opening **Phase 1 (Safe integration
+    foundation)** for implementation. Phase 1 is scoped to the read-only
+    ERPNext API adapter (task **INT-001**) built against **synthetic
+    fixtures** only. No live ERPNext connection, no production credentials,
+    and no real customer data may be introduced until the Phase 5 security
+    gate is explicitly approved. Later phases (2-5) remain gated and are
+    not unlocked by this decision.
+-   **Consequences and risks:** Development can begin. The read-only and
+    synthetic-fixture constraints remain binding; violation of either is a
+    scope/security breach.
+-   **Follow-up tasks:** INT-001
