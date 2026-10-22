@@ -1,0 +1,19 @@
+# Environment variables and secrets
+
+.env .env.* !.env.example *.pem \*.key secrets/ credentials/
+
+# Dependencies
+
+node_modules/ frontend/node_modules/ backend/node_modules/
+
+# Build output
+
+dist/ build/ coverage/
+
+# Logs and local state
+
+\*.log logs/ .DS_Store .vscode/ .idea/
+
+# Test and local data
+
+*.sqlite *.db private-data/ customer-data/
