@@ -24,11 +24,11 @@ planning status.
                  authorisation                                  
                  model                                          
 
-  GOV-004        Resolve business BACKLOG        Human owner /  GOV-002
+  GOV-004        Resolve business DONE           Human owner /  GOV-002
                  rules in open                   finance        
                  questions                                      
 
-  GOV-005        Approve          BACKLOG        Human owner    GOV-002,
+  GOV-005        Approve          DONE           Human owner    GOV-002,
                  architecture and                               GOV-003
                  LLM                                            
                  data-handling                                  
