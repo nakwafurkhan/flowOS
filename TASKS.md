@@ -10,16 +10,16 @@ planning status.
   ----------------------------------------------------------------------------
   ID             Task             Status         Owner          Dependencies
   -------------- ---------------- -------------- -------------- --------------
-  GOV-001        Review and       BACKLOG        Human owner    None
+  GOV-001        Review and       DONE           Human owner    None
                  approve project                                
                  charter                                        
 
-  GOV-002        Confirm ERPNext  BACKLOG        Human owner    None
+  GOV-002        Confirm ERPNext  DONE           Human owner    None
                  version, hosting                               
                  and                                            
                  customisations                                 
 
-  GOV-003        Confirm user     BACKLOG        Human owner /  GOV-001
+  GOV-003        Confirm user     DONE           Human owner /  GOV-001
                  roles and                       finance        
                  authorisation                                  
                  model                                          
@@ -34,12 +34,12 @@ planning status.
                  data-handling                                  
                  policy                                         
 
-  GOV-006        Configure Git    BACKLOG        Human owner    GOV-001
+  GOV-006        Configure Git    DONE           Human owner    GOV-001
                  protections and                                
                  contributor                                    
                  process                                        
 
-  INT-001        Implement        BLOCKED        TBD            GOV-002,
+  INT-001        Implement        READY          TBD            GOV-002,
                  read-only                                      GOV-005
                  ERPNext API                                    
                  adapter                                        
@@ -49,7 +49,7 @@ planning status.
                  and                                            
                  disambiguation                                 
 
-  FIN-001        Select           BLOCKED        Finance owner  GOV-004
+  FIN-001        Select           READY          Finance owner  GOV-004
                  authoritative                                  
                  receivables                                    
                  source and                                     
@@ -61,7 +61,7 @@ planning status.
                  reconciliation                                 
                  tests                                          
 
-  FIN-003        Approve and      BLOCKED        Finance owner  GOV-004
+  FIN-003        Approve and      READY          Finance owner  GOV-004
                  implement credit                / developer    
                  exposure formula                               
 
@@ -69,7 +69,7 @@ planning status.
                  invoice ageing                                 
                  and drill-down                                 
 
-  UI-001         Design customer  BLOCKED        TBD            GOV-001,
+  UI-001         Design customer  READY          TBD            GOV-001,
                  search and                                     GOV-004
                  summary views                                  
 

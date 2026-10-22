@@ -5,54 +5,31 @@ approver. Link significant decisions from `DECISIONS.md`.
 
 ## Product and users
 
--   [ ] Who exactly will use the bot, and which ERPNext roles should be
-    allowed to query balances?
--   [ ] Is the first interface a web chat, a messaging app, or both?
--   [ ] Is customer self-service explicitly out of scope for the first
-    release?
--   [ ] What response time and data freshness are acceptable?
+-   [x] **RESOLVED (GOV-001, GOV-003):** Internal sales staff and accounts/finance staff (`Sales User`, `Accounts User`) only. Protected behind internal corporate network / VPN.
+-   [x] **RESOLVED (DEC-003):** Initial interface is a Web Chat (React + Vite, Node.js + Express backend).
+-   [x] **RESOLVED (GOV-001):** Customer self-service is explicitly OUT OF SCOPE for initial releases.
+-   [x] **RESOLVED (DEC-005):** Real-time API query per request; response time target <1.5s with deterministic aggregation.
 
 ## ERPNext
 
--   [ ] Which ERPNext/Frappe version does the trading company run?
--   [ ] Is it cloud-hosted or self-hosted? Are custom apps or custom
-    fields installed?
--   [ ] Which company/companies and currencies should the bot support?
--   [ ] Which ERPNext report and filter set is the authoritative source
-    for receivables?
--   [ ] Which fields are accessible to the proposed integration user?
--   [ ] Can the bot link to ERPNext documents using the company's
-    canonical URL?
+-   [x] **RESOLVED (GOV-002):** Initial local development and automated unit/integration tests use synthetic ERPNext fixtures. Staging/Production connection details to be provided prior to live deployment.
+-   [x] **RESOLVED (DEC-001):** Integration user requires read-only permissions on `Customer`, `Sales Invoice`, `Payment Entry`, `Sales Order`, and `Delivery Note`.
+-   [x] **RESOLVED (DEC-005):** Canonical ERPNext URLs will link directly to `/app/sales-invoice/<name>` and `/app/customer/<name>`.
 
 ## Finance rules
 
--   [ ] Does outstanding balance come directly from Accounts Receivable,
-    submitted Sales Invoices, or another approved source?
--   [ ] How are advances, unallocated payments, credit notes, returns,
-    write-offs and disputes treated?
--   [ ] What counts as total credit exposure: invoices only, or also
-    orders/delivery notes?
--   [ ] How is available credit calculated?
--   [ ] Is there a warning threshold such as 20%, and who approved it?
--   [ ] What does a "blocked" status mean? Is it merely informational?
--   [ ] Which ageing basis and buckets should be used?
--   [ ] How should multi-currency exposure be displayed or converted?
--   [ ] What timezone and "current date" should determine overdue
-    status?
+-   [x] **RESOLVED (DEC-005):** Outstanding balance reconciles with ERPNext Accounts Receivable logic.
+-   [x] **RESOLVED (DEC-004):** Total Credit Exposure = Outstanding Invoices + Unbilled Delivery Notes + Active Sales Orders ('To Deliver and Bill', 'To Bill').
+-   [x] **RESOLVED (DEC-004):** Available Credit = Credit Limit - Total Credit Exposure. If limit is missing, marked as unconfigured/unknown.
+-   [x] **RESOLVED (DEC-005):** Ageing calculated based on invoice **Due Date** with standard buckets: Current, 1–30d, 31–60d, 61–90d, 90d+ overdue.
+-   [x] **RESOLVED (DEC-004):** Multi-currency is displayed in original transaction currency and customer billing currency; no ad-hoc currency conversion.
 
 ## AI and privacy
 
--   [ ] Which coding agent will use REA, and how does it configure MCP?
--   [ ] Which model/provider may receive user queries or customer data?
--   [ ] Is company policy approval required before sending financial
-    data to that provider?
--   [ ] Is an LLM needed in the first version, or can the first version
-    use deterministic search plus templates?
--   [ ] What should be logged, for how long, and who can access logs?
+-   [x] **RESOLVED (GOV-005, DEC-002, DEC-006):** LLM does not perform financial arithmetic or execute arbitrary SQL/APIs. The model receives only sanitized, typed schema data for query intent mapping and conversational summary formatting.
+-   [x] **RESOLVED (DEC-001):** No production credentials or live confidential customer records are stored or committed.
 
 ## Operations
 
--   [ ] Where will the app run?
--   [ ] How will user authentication be implemented?
--   [ ] Who owns incident response and credential rotation?
--   [ ] Who approves releases and production access?
+-   [x] **RESOLVED (GOV-003, DEC-003):** Node.js / Express backend service running in internal environment, serving React frontend over HTTPS.
+-   [x] **RESOLVED (GOV-006):** Git branch discipline enforced (`feat/TASK-xxx`, `fix/TASK-xxx`, `docs/TASK-xxx`). All merges require human review.

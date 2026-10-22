@@ -79,6 +79,4 @@ approved later.
 
 ## Current status
 
-Planning only. No implementation is approved by this document alone. The
-project owner must explicitly approve the specification and
-implementation start.
+Approved by Project Owner on 2026-10-22 (GOV-001). Initial scope confirmed for internal sales and finance staff with synthetic ERPNext development fixtures (GOV-002) and role-based authorization (GOV-003).
