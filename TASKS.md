@@ -96,6 +96,34 @@ before it is marked `READY`.
 
 ## Owner-approved acceptance criteria
 
+### INT-002 --- Customer lookup and disambiguation (OPENED, Phase 1)
+
+Owner approval for Phase 1 recorded in DEC-007. Depends on INT-001.
+
+**Scope (in):** A deterministic customer resolver on top of the INT-001
+read-only adapter. Search by customer name or ID; exact-ID matches take
+priority; ambiguous results are surfaced for the caller to choose.
+
+**Scope (out):** No natural-language parsing, no LLM calls, no credit or
+balance calculations, no write access, no live ERPNext connection.
+
+**Acceptance criteria:**
+-   Resolver returns a discriminated result: `found`, `ambiguous`,
+    `not_found`, or `invalid_query`.
+-   Exact ID match wins: if the query equals an existing customer ID,
+    that customer is returned without a name search.
+-   Name search returns `ambiguous` (all candidates) when more than one
+    customer matches, and never silently picks one.
+-   Zero matches returns `not_found` with a safe, helpful message.
+-   Blank/whitespace queries return `invalid_query` and never call
+    ERPNext.
+-   Adapter failures propagate as typed errors; no failure becomes
+    `not_found` or a zero balance.
+-   Works entirely against synthetic fixtures in tests.
+
+**Tests:** `backend/tests/customer-resolver.test.js`.
+**Review owner:** Human maintainer.
+
 ### INT-001 --- Read-only ERPNext API adapter (OPENED, Phase 1)
 
 Owner approval recorded in `DECISIONS.md` (DEC-007, 2026-10-22).
