@@ -44,7 +44,7 @@ planning status.
                  ERPNext API                                    DEC-007
                  adapter                                        
 
-  INT-002        Implement        IN PROGRESS    Dev agent      INT-001
+  INT-002        Implement        IN REVIEW      Dev agent      INT-001
                  customer lookup                                
                  and                                            
                  disambiguation                                 
