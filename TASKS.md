@@ -3,6 +3,7 @@
 | ID | Task | Status | Acceptance / dependency |
 | --- | --- | --- | --- |
 | PLAN-001 | Refresh governance and phased plan | IN REVIEW | Repo reflects unknown company context; reusable rules retained; stale assumptions removed. |
+| PLAN-002 | Keep decision log as a reusable template | IN REVIEW | Remove prefilled project decisions; add new proposals only when a choice arises. |
 | DEMO-001 | Build synthetic credit demo | BACKLOG | Search, disambiguation, source/time labels, invoice drill-down, currency separation, missing/zero/error states; no real data. Depends on review of demo contract. |
 | DEMO-002 | Rehearse and package presentation | BACKLOG | Five-minute story, scripted scenarios, limitations and discovery questions; depends on DEMO-001. |
 | DISC-001 | Interview finance, sales, IT and operations | BACKLOG | Document actual systems, processes, roles, data definitions and pilot sponsor; depends on company engagement. |
