@@ -7,7 +7,7 @@ Mark an answer resolved only with the company contact, date and evidence. These 
 - Who will attend the demo, and which credit question costs them time today?
 - What does “credit balance” mean to sales versus finance? Which screen/report is authoritative?
 - Which languages and currencies matter? How should dates, ageing, returns, advances, partial payments, credit notes and disputes appear?
-- Is there already an ERP, accounting package, document repository or warehouse system? Which workflows are manual?
+- Which ERPNext/Frappe version, custom apps, reports and integrations do they use? Which workflows are manual or slow in their actual configuration?
 - What would make a small paid pilot valuable, and who can approve it?
 
 ## Data and privacy

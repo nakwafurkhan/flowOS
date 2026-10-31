@@ -2,16 +2,32 @@
 
 Dates below are **planning estimates**, not promises. Each phase has an exit gate; do not skip discovery to build speculative modules.
 
-## 0. Prepare the pitch (now, about 1–2 weeks)
+## 0. Build and present the demo (now, about 1–2 weeks)
 
-1. Write three synthetic customer stories: ordinary balance, ambiguous name, overdue/partial payment. Add zero balance, missing limit, different currency and unavailable-source examples.
-2. Build the read-only credit demo against structured fixtures. Compute amounts in code; show invoice evidence and as-of timestamps. Clearly label every view as synthetic.
-3. Test the calculations and failure states. Rehearse a five-minute live path and a static fallback recording/screenshots.
-4. Prepare one page explaining the future private deployment, data boundaries, proposed pilot and questions for them.
+**Audience and promise:** The company is already interested and wants to see what you can build. Show a working, polished example before asking for internal access or a detailed process interview. The claim is a possible **company-specific experience** with controlled data and workflows, not that ERPNext lacks credit limits or receivables reports. ERPNext already has those features and Frappe can be customised; the demo must show a measurable improvement in the user's journey.
 
-**Gate:** the demo works without company connectivity, no real data is present, and a viewer can distinguish facts from assumptions.
+### Build sequence
 
-## 1. Discover the company (after interest, about 2–4 weeks)
+1. **Pick one believable job:** a sales employee asks, “Can I see this customer's balance and what is overdue before taking an order?” Use fictional Saudi trading-company names, SAR amounts and realistic dates. Label all records synthetic.
+2. **Create the synthetic source:** customers, invoices, payments and a source timestamp. Include an ambiguous customer name, partial payment, overdue invoice, zero balance, missing limit, a second currency and a source failure. Write expected totals by hand before coding.
+3. **Build the credit flow:** search or ask in plain language; resolve ambiguity; show outstanding by currency, overdue invoices and evidence links. Show “as of” time and explain any missing value. Financial amounts come from code and structured records.
+4. **Add one visible future-platform preview:** a clearly labelled mock invoice upload → extraction review → cited answer, plus simple CEO/department dashboard and warehouse navigation previews using synthetic data. These previews demonstrate direction; they do not claim completed integrations, OCR or live permissions.
+5. **Make the value legible:** show the same task as a short sequence of steps in a generic ERP report workflow and in the demo. Measure clicks/time in your own demonstration, state that the company's actual ERPNext configuration has not been observed, and ask them to validate the difference later.
+6. **Test and package:** check all money/error cases; rehearse a five-minute script; prepare screenshots or a recording as backup; show a one-page architecture sketch of how a private local deployment could work.
+
+### Five-minute presentation
+
+- **0:00–0:30:** State the sales/finance question and that the data is synthetic.
+- **0:30–2:30:** Live credit enquiry: customer disambiguation, balance, overdue invoice and source evidence.
+- **2:30–3:30:** Show an honest failure/unknown case, then the invoice and dashboard preview.
+- **3:30–4:30:** Explain the private platform possibility: approved invoice intake, local model with retrieval and permissions, role-specific workflows, and later warehouse modules.
+- **4:30–5:00:** Propose a small validation pilot and ask for a sponsor and follow-up discovery session.
+
+**Gate:** the live demo works without company connectivity; every screen distinguishes working features from previews; synthetic data is obvious; the pitch does not assert unverified company pain points or promise ERP replacement.
+
+For a fair comparison, use the official [ERPNext Accounts Receivable documentation](https://docs.frappe.io/erpnext/accounts-receivable-and-payable), [credit limit documentation](https://docs.frappe.io/erpnext/credit-limit), and [Frappe customisation overview](https://frappe.io/framework/customisation). Validate the company's installed version and custom apps during discovery.
+
+## 1. Discover the company (after demo green light, about 2–4 weeks)
 
 1. Interview finance, sales, warehouse, department leads and IT separately. Observe actual credit and invoice workflows.
 2. Inventory accounting/ERP, invoice repositories, warehouse tools, identity, network and backup practices. Capture owners and pain points.

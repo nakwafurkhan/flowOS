@@ -8,6 +8,10 @@ Use a small synthetic dataset with at least: two similarly named customers, one 
 
 Each demo screen and presentation must say **Synthetic demo data — not connected to Durrar Masagh systems**. No sign-in to company systems, invoice upload or external model call is required for this phase.
 
+## Presentation preview, subject to discovery
+
+Show mock screens for invoice upload/review, role-specific dashboards and warehouse navigation with synthetic data. Label them **concept previews**. Do not imply that OCR, local AI, integrations or access controls are functional until they are built and tested. The working credit flow should be the centrepiece.
+
 ## Candidate production capabilities, subject to discovery
 
 - Private invoice intake: local upload, malware/type checks, document storage, OCR/extraction, human review, versioning and retention.

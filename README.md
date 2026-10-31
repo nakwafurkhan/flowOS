@@ -1,10 +1,10 @@
 # Durrar Masagh | Credit demo and platform plan
 
-**Status:** discovery and demo planning. No company system, data source, workflow, or software stack has been confirmed. The repo contains no application code yet.
+**Status:** discovery and demo planning. The company develops software on ERPNext/Frappe; its configuration, data sources, workflows and future stack have not been confirmed. The repo contains no application code yet.
 
 ## Aim
 
-Present a credible, read-only credit balance demo using **synthetic records**. If the company is interested, discover its actual processes and propose a private, locally hosted operations platform in stages. The demo must never imply that its numbers are live company balances.
+Present a credible, read-only credit balance demo using **synthetic records**. After the demo gets a green light, discover its actual processes and propose a private, locally hosted operations platform in stages. The demo must never imply that its numbers are live company balances.
 
 ## Read in this order
 

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Win a discovery conversation with a demonstrable credit enquiry flow, then build only the private operational capabilities the company validates and funds. The company's systems, processes, vocabulary, roles and data quality are unknown today.
+Earn a deeper discovery conversation with a demonstrable credit enquiry flow, then build only the private operational capabilities the company validates and funds. The company develops on ERPNext/Frappe; its configuration, processes, vocabulary, roles and data quality are unknown today.
 
 ## Enduring principles
 
