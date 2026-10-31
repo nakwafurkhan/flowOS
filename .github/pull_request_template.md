@@ -1,23 +1,13 @@
-## Task
+## Task and purpose
 
--   Task ID:
--   Related decision(s):
+## Changes
 
-## Purpose
+## Checks run and results
 
-What problem does this change solve?
+## Data and security implications
 
-## \## Changes
+## Open questions and rollback
 
-## Validation
-
--   [ ] Tests run and results reported
--   [ ] `git diff` reviewed
--   [ ] No secrets or real customer data added
--   [ ] Docs / task board updated
-
-## Commands run and outcomes:
-
-## \## Risks and rollback
-
-## \## Reviewer questions
+- [ ] Diff reviewed
+- [ ] No secrets or real company data added
+- [ ] Task board and documents updated

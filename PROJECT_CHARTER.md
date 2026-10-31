@@ -1,84 +1,19 @@
-# Project Charter
+# Project charter
 
-## Working name
+## Purpose
 
-Credit Balance Check Bot
+Win a discovery conversation with a demonstrable credit enquiry flow, then build only the private operational capabilities the company validates and funds. The company's systems, processes, vocabulary, roles and data quality are unknown today.
 
-## One-sentence goal
+## Enduring principles
 
-Help authorised employees of a trading company quickly and reliably
-check a customer's outstanding balance, credit exposure, overdue
-invoices and supporting invoice details using the company's ERPNext
-data.
+1. Financial values come from a named authoritative source and deterministic calculations; a model may explain them but may not invent them.
+2. The demo uses synthetic data clearly labelled as such. Real invoices or customer data require company permission and an approved handling process.
+3. Company data stays within the approved company environment in production. No external AI API or telemetry receives it by default.
+4. Access is checked on the server for each user, action and record. Start with read-only workflows; writes need explicit process ownership and approval.
+5. Every answer that cites a document shows the document, relevant page or record, and retrieval time. A missing or ambiguous result is stated plainly.
+6. Build in small, replaceable modules around stable data contracts. Choose the actual integrations and stack after discovery.
+7. Preserve auditability, backup/restore, and a way to correct erroneous extracted data before it affects business outputs.
 
-## Problem
+## Scope boundaries
 
-Finding a customer's current position can require navigating accounting
-screens and reports. The bot should make common enquiries faster without
-changing the underlying accounting records or compromising
-financial-data security.
-
-## Intended users
-
--   Internal sales staff who are authorised to view customer credit
-    information.
--   Accounts/finance staff.
--   Project owner and maintainers.
-
-Customer self-service is **not in the initial scope** unless explicitly
-approved later.
-
-## Product principles
-
-1.  **Correctness before cleverness.** Financial figures must come from
-    verified ERPNext records or approved reports, not model guesses.
-2.  **Read-only first.** The initial bot must not create, update,
-    submit, cancel or delete ERPNext records.
-3.  **Evidence and traceability.** Responses should identify relevant
-    records and when data was retrieved.
-4.  **Least privilege.** Use a dedicated integration account with only
-    the required permissions.
-5.  **Clarify ambiguity.** If multiple customers match, ask the user to
-    select the right one.
-6.  **Fail honestly.** Missing data, unavailable credit limits,
-    permissions failures and stale data must be stated clearly.
-7.  **Human accountability.** AI agents propose changes; tests and human
-    review control what enters the main branch.
-8.  **Small, reversible changes.** Every change is tracked in Git and
-    has a clear purpose.
-9.  **No scope drift.** New features require a task and, where they
-    change behaviour or architecture, a recorded decision.
-10. **Respect access boundaries.** Inspect only systems and data the
-    team is authorised to access.
-
-## Success criteria for the first usable version
-
--   An authorised user can find a customer by ID or name.
--   Ambiguous matches are presented for confirmation.
--   The bot returns the verified outstanding amount and the supporting
-    unpaid invoices.
--   It reports configured credit limits and exposure only when the
-    required data and business rules are confirmed.
--   Overdue invoices and ageing are calculated consistently with the
-    agreed ERPNext report behaviour.
--   No financial mutation endpoints are exposed.
--   Automated tests cover financial calculations, ambiguity, missing
-    values and API failures.
--   Secrets are never committed or exposed to the browser.
--   Changes are reviewed and merged through the agreed Git workflow.
-
-## Non-goals for the initial version
-
--   Replacing ERPNext, Tally or the company's accounting system.
--   Automatically approving or blocking credit.
--   Sending payment reminders or making phone calls.
--   Writing back to ERPNext.
--   Making decisions based solely on an LLM.
--   Supporting multiple companies or customer-facing access before
-    requirements are agreed.
-
-## Current status
-
-Planning only. No implementation is approved by this document alone. The
-project owner must explicitly approve the specification and
-implementation start.
+The first demo is a credit balance enquiry. Invoice upload, local model, retrieval, warehouse management and dashboards are later phases. Their exact features depend on observed company workflows and signed-off definitions. The platform must not be sold as a replacement for accounting controls or human credit approval without a separate project decision.

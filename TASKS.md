@@ -1,95 +1,12 @@
-# Task Board
+# Task board
 
-Statuses: `BACKLOG`, `READY`, `IN PROGRESS`, `BLOCKED`, `IN REVIEW`,
-`DONE`.
+| ID | Task | Status | Acceptance / dependency |
+| --- | --- | --- | --- |
+| PLAN-001 | Refresh governance and phased plan | IN REVIEW | Repo reflects unknown company context; reusable rules retained; stale assumptions removed. |
+| DEMO-001 | Build synthetic credit demo | BACKLOG | Search, disambiguation, source/time labels, invoice drill-down, currency separation, missing/zero/error states; no real data. Depends on review of demo contract. |
+| DEMO-002 | Rehearse and package presentation | BACKLOG | Five-minute story, scripted scenarios, limitations and discovery questions; depends on DEMO-001. |
+| DISC-001 | Interview finance, sales, IT and operations | BACKLOG | Document actual systems, processes, roles, data definitions and pilot sponsor; depends on company engagement. |
+| PILOT-001 | Approve private real-data pilot | BLOCKED | Company signs off sample data, environment, access, source rules and success metrics; depends on DISC-001. |
+| PLATFORM-001 | Select and benchmark local stack | BLOCKED | OCR/model accuracy, latency, capacity, costs, backup and security evidence; depends on DISC-001. |
 
-Only move a task to `READY` after its dependencies and acceptance
-criteria are clear. Do not start implementation while the project is in
-planning status.
-
-  ----------------------------------------------------------------------------
-  ID             Task             Status         Owner          Dependencies
-  -------------- ---------------- -------------- -------------- --------------
-  GOV-001        Review and       BACKLOG        Human owner    None
-                 approve project                                
-                 charter                                        
-
-  GOV-002        Confirm ERPNext  BACKLOG        Human owner    None
-                 version, hosting                               
-                 and                                            
-                 customisations                                 
-
-  GOV-003        Confirm user     BACKLOG        Human owner /  GOV-001
-                 roles and                       finance        
-                 authorisation                                  
-                 model                                          
-
-  GOV-004        Resolve business BACKLOG        Human owner /  GOV-002
-                 rules in open                   finance        
-                 questions                                      
-
-  GOV-005        Approve          BACKLOG        Human owner    GOV-002,
-                 architecture and                               GOV-003
-                 LLM                                            
-                 data-handling                                  
-                 policy                                         
-
-  GOV-006        Configure Git    BACKLOG        Human owner    GOV-001
-                 protections and                                
-                 contributor                                    
-                 process                                        
-
-  INT-001        Implement        BLOCKED        TBD            GOV-002,
-                 read-only                                      GOV-005
-                 ERPNext API                                    
-                 adapter                                        
-
-  INT-002        Implement        BLOCKED        TBD            INT-001
-                 customer lookup                                
-                 and                                            
-                 disambiguation                                 
-
-  FIN-001        Select           BLOCKED        Finance owner  GOV-004
-                 authoritative                                  
-                 receivables                                    
-                 source and                                     
-                 filters                                        
-
-  FIN-002        Implement        BLOCKED        TBD            FIN-001
-                 balance summary                                
-                 with                                           
-                 reconciliation                                 
-                 tests                                          
-
-  FIN-003        Approve and      BLOCKED        Finance owner  GOV-004
-                 implement credit                / developer    
-                 exposure formula                               
-
-  FIN-004        Implement        BLOCKED        TBD            FIN-001
-                 invoice ageing                                 
-                 and drill-down                                 
-
-  UI-001         Design customer  BLOCKED        TBD            GOV-001,
-                 search and                                     GOV-004
-                 summary views                                  
-
-  AI-001         Add constrained  BLOCKED        TBD            INT-002,
-                 tool-calling                                   FIN-002
-                 orchestration                                  
-
-  SEC-001        Security and     BLOCKED        Human reviewer INT-001,
-                 access-control                                 AI-001
-                 review                                         
-
-  QA-001         End-to-end tests BLOCKED        Human owner /  INT-001,
-                 and user                        QA             FIN-002,
-                 acceptance                                     FIN-004,
-                                                                UI-001, AI-001
-  ----------------------------------------------------------------------------
-
-## Task assignment protocol
-
-Before work starts, record the assignee and branch in the task row or
-task issue. Avoid assigning overlapping file ownership to parallel
-agents. Every task needs acceptance criteria, tests and a review owner
-before it is marked `READY`.
+For each implementation task, add an owner, acceptance examples, test and reviewer before moving it to READY. Track later modules only after discovery and a recorded decision.

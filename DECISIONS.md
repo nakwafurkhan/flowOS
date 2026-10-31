@@ -1,54 +1,13 @@
-# Architecture and Product Decision Log
+# Decision log
 
-Record decisions that affect scope, behaviour, security, dependencies or
-architecture. New entries are proposed until explicitly marked
-`ACCEPTED` by the owner.
+Use `PROPOSED`, `ACCEPTED`, `REJECTED` or `SUPERSEDED`. Only an identified owner can accept a company-specific decision. Record date, options, evidence, consequence and approver.
 
-## Decision template
+| ID | Decision | Status | Reason |
+| --- | --- | --- | --- |
+| DEC-001 | Present the first credit demo with synthetic data only | ACCEPTED for this project plan | No company data access or practice is known. |
+| DEC-002 | Keep financial calculations deterministic and source-linked | ACCEPTED for this project plan | Prevent invented balances and permit reconciliation. |
+| DEC-003 | Target a company-controlled, local deployment for production | PROPOSED | User's desired privacy posture; validate company constraints and operations. |
+| DEC-004 | Select ERP adapter, app stack, storage, OCR and local model after discovery/benchmark | PROPOSED | Current choices would be guesses. |
+| DEC-005 | Start production access with read-only roles | PROPOSED | Limits blast radius; real workflows may later need separately approved writes. |
 
-### DEC-XXX --- Short title
-
--   **Status:** PROPOSED / ACCEPTED / REJECTED / SUPERSEDED
--   **Date:**
--   **Owner/approver:**
--   **Context:**
--   **Options considered:**
--   **Decision:**
--   **Consequences and risks:**
--   **Follow-up tasks:**
-
-------------------------------------------------------------------------
-
-## DEC-001 --- Keep the initial ERPNext integration read-only
-
--   **Status:** PROPOSED
--   **Context:** The bot handles sensitive financial information;
-    accidental writes would be high impact.
--   **Options considered:** Read-only first; read/write integration.
--   **Decision:** Proposed read-only access for the MVP.
--   **Consequences and risks:** The bot cannot create reminders or
-    change accounting records. Those features require a separate review
-    and decision.
-
-## DEC-002 --- Financial figures must be grounded in ERPNext data
-
--   **Status:** PROPOSED
--   **Context:** LLM-generated numbers are not acceptable as accounting
-    truth.
--   **Options considered:** Ask the model to calculate from text;
-    deterministic service using validated source data.
--   **Decision:** Proposed deterministic calculation/retrieval with the
-    LLM limited to intent selection and explanation.
--   **Consequences and risks:** More explicit schemas and tests are
-    required, but results are auditable.
-
-## DEC-003 --- Use React/Vite + Node/Express as the initial technical proposal
-
--   **Status:** PROPOSED
--   **Context:** A web chat plus backend can keep ERPNext credentials
-    out of the browser.
--   **Options considered:** Web app, messaging bot, direct
-    client-to-ERPNext.
--   **Decision:** Proposed web MVP; final stack requires owner approval.
--   **Consequences and risks:** Messaging integrations and persistence
-    can be added later if approved.
+The former ERPNext and React/Express proposals are superseded as assumptions, not retained as requirements. Their history remains in Git.

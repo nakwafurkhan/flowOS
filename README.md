@@ -1,47 +1,23 @@
-# Credit Balance Check Bot --- Project Control Centre
+# Durrar Masagh | Credit demo and platform plan
 
-This repository is the shared source of truth for the project. It is
-intentionally a **planning and governance pack**, not an implementation.
-No application code has been built by this pack.
+**Status:** discovery and demo planning. No company system, data source, workflow, or software stack has been confirmed. The repo contains no application code yet.
 
-## Start here
+## Aim
 
-1.  Read `PROJECT_CHARTER.md` --- the product's purpose and
-    non-negotiable principles.
-2.  Read `AGENTS.md` --- rules every AI agent and human contributor must
-    follow.
-3.  Read `PRODUCT_SPEC.md` --- approved scope and behaviours.
-4.  Read `ARCHITECTURE.md` --- proposed architecture and decisions still
-    awaiting approval.
-5.  Read `ROADMAP.md` and `TASKS.md` --- what comes next.
-6.  Read `docs/REFERENCE_INVESTIGATION.md` --- the supplied REA
-    investigation, including unverified findings.
+Present a credible, read-only credit balance demo using **synthetic records**. If the company is interested, discover its actual processes and propose a private, locally hosted operations platform in stages. The demo must never imply that its numbers are live company balances.
 
-## Source-of-truth order
+## Read in this order
 
-If documents conflict, do not guess. Stop and raise the conflict in
-`docs/OPEN_QUESTIONS.md`.
+1. [PROJECT_CHARTER.md](PROJECT_CHARTER.md): purpose and enduring constraints.
+2. [AGENTS.md](AGENTS.md): contributor rules.
+3. [PRODUCT_SPEC.md](PRODUCT_SPEC.md): demo contract and later hypotheses.
+4. [ARCHITECTURE.md](ARCHITECTURE.md): boundaries and proposed on-premise shape.
+5. [ROADMAP.md](ROADMAP.md): detailed phases and exit gates.
+6. [TASKS.md](TASKS.md): next concrete work.
+7. [docs/OPEN_QUESTIONS.md](docs/OPEN_QUESTIONS.md): discovery questions.
 
-1.  `PROJECT_CHARTER.md` --- purpose and hard constraints.
-2.  `DECISIONS.md` --- explicitly accepted decisions.
-3.  `PRODUCT_SPEC.md` --- expected product behaviour.
-4.  `ARCHITECTURE.md` --- technical design.
-5.  `TASKS.md` --- current task status.
-6.  `docs/REFERENCE_INVESTIGATION.md` --- research evidence, not
-    automatically approved requirements.
-7.  Chat messages and agent assumptions --- not authoritative unless
-    recorded in the repository.
+Accepted decisions in [DECISIONS.md](DECISIONS.md) take precedence over proposals. Unanswered questions are not requirements. The old ERPNext investigation was removed because it concerned a public demo instance, not this company's confirmed environment; it remains in Git history if needed.
 
-## Current state
+## Current next step
 
-**Status: PRE-IMPLEMENTATION / PLANNING.**
-
-Do not start application implementation, connect to live ERPNext, create
-API credentials, or modify production data until the owner explicitly
-approves the relevant phase.
-
-## First human action
-
-Review the charter, product specification, architecture proposal and
-open questions. Edit them or approve them before starting
-implementation.
+Build the synthetic credit demo under `DEMO-001` after its small acceptance contract is reviewed. The wider roadmap is a sequence of hypotheses, not a commitment to implement every module.

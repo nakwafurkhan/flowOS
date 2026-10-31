@@ -1,87 +1,31 @@
-# Architecture --- Proposed, Not Yet Approved
+# Architecture foundation
 
-## Current status
+**Status:** proposed boundaries, not a fixed stack or procurement list.
 
-Planning only. This is a proposal to review, not permission to start
-implementation.
-
-## Proposed components
-
-1.  **Chat UI:** React + Vite.
-2.  **Backend API:** Node.js + Express.
-3.  **ERPNext adapter:** server-side client using Frappe/ERPNext APIs.
-4.  **Credit service:** deterministic business logic for lookup,
-    receivables, ageing and summary assembly.
-5.  **LLM orchestration:** optional model with tool/function calling; it
-    can select approved tools and explain results, but cannot calculate
-    or invent financial truth.
-6.  **Persistence:** initially avoid storing accounting data unless
-    needed. If audit/history persistence is required, choose a database
-    and retention policy via a decision record.
-7.  **Observability:** redacted operational logs, error handling and
-    request IDs.
-
-## Request flow
-
-User question → backend authentication/authorisation → intent/tool
-selection → validated customer resolver → approved ERPNext read
-operation → deterministic service → schema-validated result → response
-formatter/LLM explanation → user.
-
-The LLM must not receive credentials, arbitrary SQL access or
-unrestricted ERPNext methods.
-
-## Integration boundaries
-
--   All ERPNext calls occur server-side.
--   Use a dedicated integration user with minimal read-only permissions.
--   Use explicit DocTypes, fields, filters and pagination.
--   Confirm field names and report API behaviour against the company's
-    ERPNext version and configuration.
--   Do not assume the public demo and the trading company's instance
-    have identical customisations.
--   Use HTTPS and timeouts.
--   Cache only if freshness requirements and invalidation behaviour are
-    agreed.
-
-## Proposed API shape
-
-These are conceptual internal endpoints; names may change after
-review: - `GET /api/customers?query=...` -
-`GET /api/customers/:customerId/credit-summary` -
-`GET /api/customers/:customerId/invoices?status=overdue` -
-`GET /api/health`
-
-Protect all financial endpoints. Do not expose a generic proxy to the
-ERPNext API.
-
-## Suggested repository structure after approval
-
-``` text
-frontend/
-backend/
-  src/
-    routes/
-    services/
-    integrations/erpnext/
-    security/
-    schemas/
-    app.js
-    server.js
-tests/
-docs/
+```text
+Browser / approved internal client
+  -> authenticated application API (server-side policy checks)
+  -> domain services (credit, documents, later inventory and metrics)
+  -> source adapters (accounting/ERP, document store, later warehouse)
+  -> local database, object storage, search index, model runtime
 ```
 
-## Architecture decisions still required
+## Build boundaries now
 
--   Exact coding agent and MCP configuration for REA.
--   ERPNext version and hosting model.
--   Authentication for bot users.
--   Approved receivables source/report and filters.
--   Credit exposure formula and status policy.
--   Currency and timezone rules.
--   LLM provider, data handling and budget.
--   Whether audit/history data must be persisted.
--   Deployment target and secret management.
+- Define a structured `Customer`, `Invoice`, `BalanceSnapshot` and `SourceReference` contract for the demo. Keep source adapters behind these contracts so synthetic data can later be replaced by a validated accounting integration.
+- Keep money as decimal values with currency codes, never floating-point arithmetic or model-generated totals. Store document identifiers, source timestamps and calculation versions.
+- Treat accounting records as the financial authority. Invoice retrieval/RAG is for finding and explaining evidence, not for deriving a ledger balance from arbitrary PDF text.
+- Separate ingestion, extraction, human verification, indexing and serving. An upload is not trusted merely because OCR completed.
+- Apply authorisation **before retrieval** and again when opening cited documents. Metadata filters and database policy must use the same user scope; retrieval results are untrusted input to the model.
+- Keep model tooling narrow: approved read tools with schemas, bounded results, no arbitrary SQL or filesystem access. Validate generated answers against retrieved records; display uncertainty and evidence.
+- Use server-side audit events for access and corrections without storing whole invoice bodies in logs.
 
-Record accepted decisions in `DECISIONS.md` before implementation.
+## Deployment hypothesis
+
+A company-controlled server on the internal network runs the app, database, encrypted document storage, search/indexing and open-source model inference. Network egress is denied by default for sensitive components. Define encrypted backups, off-host restore tests, patching, monitoring, incident response and a capacity test before a production pilot. Hardware sizing follows measured page volume, concurrent users, OCR language needs and model latency; do not buy a GPU from a guess.
+
+Prefer a single deployable application and database initially. Add a job worker for uploads/OCR only when needed; split services only after operational evidence. Pin and review model versions, extraction pipelines and prompts. The exact runtime, database, OCR, model and framework are decisions after discovery and a local benchmark.
+
+## Decision gates
+
+Confirm company systems and legal/data requirements; obtain representative anonymised samples; approve roles and financial definitions; benchmark Arabic/English invoice extraction and answer quality; then record the selected stack and deployment design in `DECISIONS.md`.

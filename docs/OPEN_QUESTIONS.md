@@ -1,58 +1,25 @@
-# Open Questions --- Resolve Before Implementation
+# Discovery questions
 
-Mark each question `RESOLVED` only after recording the answer and
-approver. Link significant decisions from `DECISIONS.md`.
+Mark an answer resolved only with the company contact, date and evidence. These questions guide interviews; do not treat likely answers as facts.
 
-## Product and users
+## Business and demo
 
--   [ ] Who exactly will use the bot, and which ERPNext roles should be
-    allowed to query balances?
--   [ ] Is the first interface a web chat, a messaging app, or both?
--   [ ] Is customer self-service explicitly out of scope for the first
-    release?
--   [ ] What response time and data freshness are acceptable?
+- Who will attend the demo, and which credit question costs them time today?
+- What does “credit balance” mean to sales versus finance? Which screen/report is authoritative?
+- Which languages and currencies matter? How should dates, ageing, returns, advances, partial payments, credit notes and disputes appear?
+- Is there already an ERP, accounting package, document repository or warehouse system? Which workflows are manual?
+- What would make a small paid pilot valuable, and who can approve it?
 
-## ERPNext
+## Data and privacy
 
--   [ ] Which ERPNext/Frappe version does the trading company run?
--   [ ] Is it cloud-hosted or self-hosted? Are custom apps or custom
-    fields installed?
--   [ ] Which company/companies and currencies should the bot support?
--   [ ] Which ERPNext report and filter set is the authoritative source
-    for receivables?
--   [ ] Which fields are accessible to the proposed integration user?
--   [ ] Can the bot link to ERPNext documents using the company's
-    canonical URL?
-
-## Finance rules
-
--   [ ] Does outstanding balance come directly from Accounts Receivable,
-    submitted Sales Invoices, or another approved source?
--   [ ] How are advances, unallocated payments, credit notes, returns,
-    write-offs and disputes treated?
--   [ ] What counts as total credit exposure: invoices only, or also
-    orders/delivery notes?
--   [ ] How is available credit calculated?
--   [ ] Is there a warning threshold such as 20%, and who approved it?
--   [ ] What does a "blocked" status mean? Is it merely informational?
--   [ ] Which ageing basis and buckets should be used?
--   [ ] How should multi-currency exposure be displayed or converted?
--   [ ] What timezone and "current date" should determine overdue
-    status?
-
-## AI and privacy
-
--   [ ] Which coding agent will use REA, and how does it configure MCP?
--   [ ] Which model/provider may receive user queries or customer data?
--   [ ] Is company policy approval required before sending financial
-    data to that provider?
--   [ ] Is an LLM needed in the first version, or can the first version
-    use deterministic search plus templates?
--   [ ] What should be logged, for how long, and who can access logs?
+- Can the company provide anonymised sample invoices and a verified expected answer set?
+- What data may be stored, for how long, and where? Are backups allowed off-site? Are external updates or telemetry permitted?
+- Who may upload, correct, search, view, export or delete invoices and balances?
+- Which identity system exists? Who administers users and audits?
 
 ## Operations
 
--   [ ] Where will the app run?
--   [ ] How will user authentication be implemented?
--   [ ] Who owns incident response and credential rotation?
--   [ ] Who approves releases and production access?
+- What server/network is available, who maintains it, and what are uptime/recovery targets?
+- Invoice volume, file formats, Arabic/English mix, scan quality and expected concurrent users?
+- What are the warehouse's locations, stock units, approval steps and existing source of truth?
+- Which CEO and department metrics have owners, formulas and refresh requirements?
