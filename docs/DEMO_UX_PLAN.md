@@ -573,6 +573,7 @@ demo/
   model.mjs        fixtures, scope rules, arithmetic, transitions
   app.mjs          routes, components, event handling, session storage
   checks.mjs       meaningful money/access/workflow checks
+  build.mjs        copy four runtime assets to dist/ for hosting
 docs/
   DEMO_UX_PLAN.md  this specification and presentation script
 ```
@@ -593,7 +594,7 @@ docs/
 
 Run `node demo/checks.mjs`, `node --check demo/app.mjs`, and `git diff --check`. Browser QA must traverse the quotation → sale → receipt → manager payable journey, task review, warehouse receipt, employee/executive scope, Arabic direction, mobile menu and reload persistence. This is a demo acceptance check, not production certification.
 
-Save all source in Git; hosting uses `demo/` as the static directory. Private hosting is for fictional presentation data only. No company data, production connector or live model is introduced. Production remains a separate discovery, authorisation and validation phase.
+Save all source in Git; `node demo/build.mjs` copies the four runtime assets from `demo/` to the supported static directory `dist/` for hosting. Private hosting is for fictional presentation data only. No company data, production connector or live model is introduced. Production remains a separate discovery, authorisation and validation phase.
 
 ### Verification record — 2 November 2026
 

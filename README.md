@@ -31,4 +31,4 @@ node demo/checks.mjs
 
 Open `http://127.0.0.1:4174`. Select Mona, Khalid or Sara. Data persists in browser session storage; the Demo guide includes a reset. Core controls support Arabic/RTL; mock assistant prose and the presenter script are English. Permissions are simulated in the browser and require server enforcement before production.
 
-Source: `demo/index.html`, `styles.css`, `model.mjs`, `app.mjs`. No dependencies or build step. The private Sites manifest points at `demo/`; never place real company data there.
+Source: `demo/index.html`, `styles.css`, `model.mjs`, `app.mjs`. No dependencies or local build step. For private hosting, `node demo/build.mjs` copies these four files into ignored `dist/`, the Sites output directory. Never place real company data there.
