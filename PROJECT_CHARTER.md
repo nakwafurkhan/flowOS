@@ -16,4 +16,4 @@ Earn a deeper discovery conversation with a demonstrable credit enquiry flow, th
 
 ## Scope boundaries
 
-The first demo is a credit balance enquiry. Invoice upload, local model, retrieval, warehouse management and dashboards are later phases. Their exact features depend on observed company workflows and signed-off definitions. The platform must not be sold as a replacement for accounting controls or human credit approval without a separate project decision.
+The first demo simulates a connected operations workflow: scoped credit enquiries, mixed-unit quotations, supplier sourcing, sales, customer receipts, task review, stock receipts and management dashboards. The user authorised this expanded browser demo on 31 October 2026. Its fictional records and proposed rules demonstrate a possibility; they are not confirmed company practices. Invoice OCR, a local model, retrieval and live company integrations remain later phases. The platform must not be sold as a replacement for accounting controls or human credit approval without a separate project decision.

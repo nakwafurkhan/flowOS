@@ -8,20 +8,20 @@ Dates below are **planning estimates**, not promises. Each phase has an exit gat
 
 ### Build sequence
 
-1. **Pick one believable job:** a sales employee asks, “Can I see this customer's balance and what is overdue before taking an order?” Use fictional Saudi trading-company names, SAR amounts and realistic dates. Label all records synthetic.
-2. **Create the synthetic source:** customers, invoices, payments and a source timestamp. Include an ambiguous customer name, partial payment, overdue invoice, zero balance, missing limit, a second currency and a source failure. Write expected totals by hand before coding.
-3. **Build the credit flow:** search or ask in plain language; resolve ambiguity; show outstanding by currency, overdue invoices and evidence links. Show “as of” time and explain any missing value. Financial amounts come from code and structured records.
-4. **Add one visible future-platform preview:** a clearly labelled mock invoice upload → extraction review → cited answer, plus simple CEO/department dashboard and warehouse navigation previews using synthetic data. These previews demonstrate direction; they do not claim completed integrations, OCR or live permissions.
-5. **Make the value legible:** show the same task as a short sequence of steps in a generic ERP report workflow and in the demo. Measure clicks/time in your own demonstration, state that the company's actual ERPNext configuration has not been observed, and ask them to validate the difference later.
-6. **Test and package:** check all money/error cases; rehearse a five-minute script; prepare screenshots or a recording as backup; show a one-page architecture sketch of how a private local deployment could work.
+1. **Design the complete story:** use the nine deliverables in [DEMO_UX_PLAN.md](docs/DEMO_UX_PLAN.md): research, solution comparisons, data model, design system, role permissions, flows, wireframes, script and build milestones.
+2. **Build shared fictional records:** customers, products, conversions, stock, quotations, invoices, receipts, supplier obligations and task review. Include ambiguous names, a zero balance, missing limit, second currency and overdue supplier.
+3. **Connect the sales path:** mixed-unit quotation → shortage sourced on supplier credit → simulated send → fulfilment-confirmed sale → partial customer receipt → supplier-payment recommendation. Keep contractual supplier due dates independent of collections.
+4. **Demonstrate three roles:** employee owns tasks/customers; manager reviews the team and handles stock; executive sees the whole company. All views and mock chat use the same access predicates and data.
+5. **Make the value legible:** change quantities, receive stock and switch roles during the presentation. Validate time/click savings against the company's real ERPNext configuration later. Explain local AI/OCR as a future phase.
+6. **Verify and present:** run arithmetic/access checks and browser flows, rehearse the five-minute route in the UX plan, and publish a private fictional-data demo. Investigate production access only after their green light.
 
 ### Five-minute presentation
 
-- **0:00–0:30:** State the sales/finance question and that the data is synthetic.
-- **0:30–2:30:** Live credit enquiry: customer disambiguation, balance, overdue invoice and source evidence.
-- **2:30–3:30:** Show an honest failure/unknown case, then the invoice and dashboard preview.
-- **3:30–4:30:** Explain the private platform possibility: approved invoice intake, local model with retrieval and permissions, role-specific workflows, and later warehouse modules.
-- **4:30–5:00:** Propose a small validation pilot and ask for a sponsor and follow-up discovery session.
+- **0:00–1:50:** Employee creates the mixed-unit quote, sources the shortage, sends and converts it.
+- **1:50–3:00:** Record a partial receipt and submit a collections task for review.
+- **3:00–4:15:** Manager approves the task, inspects the linked supplier recommendation and receives stock.
+- **4:15–4:55:** Executive opens company-wide records; employee chat demonstrates access refusal.
+- **4:55–5:00:** Ask for a discovery sponsor. The exact click path and expected figures are in the UX plan.
 
 **Gate:** the live demo works without company connectivity; every screen distinguishes working features from previews; synthetic data is obvious; the pitch does not assert unverified company pain points or promise ERP replacement.
 

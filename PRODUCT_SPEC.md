@@ -1,6 +1,12 @@
 # Product specification
 
-**Status:** demo contract draft; company workflows unverified.
+**Status:** expanded demo contract; company workflows unverified. The user's 31 October 2026 brief and request to rebuild authorise the browser simulation described in [DEMO_UX_PLAN.md](docs/DEMO_UX_PLAN.md), which supersedes the earlier credit-only demo scope below.
+
+## Current interactive scope
+
+Three demo accounts share a fictional session dataset. Required working flows: employee follow-up and manager sign-off; mixed-unit quotation and supplier shortage selection; simulated send and one-time sale conversion; partial customer receipts and linked supplier recommendations; product creation and stock receipts; scoped dashboards and a mock assistant with record links. Supplier due dates remain independent of collections. See the UX plan for permissions, field rules, exact examples and acceptance cases.
+
+The following original credit requirements remain correctness constraints. Warehouse, quotation and dashboard capabilities are now interactive simulations; invoice OCR/local AI remain future concepts.
 
 ## Credit demo, first presentation
 
@@ -10,7 +16,7 @@ Each demo screen and presentation must say **Synthetic demo data — not connect
 
 ## Presentation preview, subject to discovery
 
-Show mock screens for invoice upload/review, role-specific dashboards and warehouse navigation with synthetic data. Label them **concept previews**. Do not imply that OCR, local AI, integrations or access controls are functional until they are built and tested. The working credit flow should be the centrepiece.
+Invoice OCR and local AI are future concepts described in the architecture, not implemented services. The rebuilt demo's dashboards and warehouse workflows operate on shared fictional records. Describe its client-side access rules as a simulation; do not imply production authentication.
 
 ## Candidate production capabilities, subject to discovery
 

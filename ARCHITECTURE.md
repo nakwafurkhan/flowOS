@@ -2,6 +2,10 @@
 
 **Status:** proposed boundaries, not a fixed stack or procurement list.
 
+## Implemented demonstration boundary
+
+`demo/` is a buildless browser app. `model.mjs` owns synthetic data, permission predicates, calculations and state transitions; `app.mjs` renders routes and persists fictional records to session storage. The same model drives dashboard figures, record views and mock chat. This prototype has no backend, secure login, OCR or AI runtime. The production architecture below is a separate proposal; browser role checks must be replaced with server-enforced authorisation before real data enters the system.
+
 ```text
 Browser / approved internal client
   -> authenticated application API (server-side policy checks)

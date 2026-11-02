@@ -4,7 +4,7 @@ Read `README.md`, `PROJECT_CHARTER.md`, `PRODUCT_SPEC.md`, `ARCHITECTURE.md`, `D
 
 ## Source of truth
 
-Accepted decisions and the charter govern work. Product/architecture documents are proposals where labelled. The company's ERP, workflows and data rules are unknown. Record uncertainty in `docs/OPEN_QUESTIONS.md`; never convert a guess into a requirement. Changes to scope, financial definitions, security or deployment need a decision entry and owner review.
+Accepted decisions and the charter govern work. Product/architecture documents are proposals where labelled. The owner reports ERPNext/Frappe use; its configuration, workflows and data rules are unknown. Record uncertainty in `docs/OPEN_QUESTIONS.md`; never convert a guess into a requirement. Record user-authorised scope changes in the charter and task board; propose unapproved architecture or business-policy choices for owner review when they arise.
 
 ## Work and Git
 

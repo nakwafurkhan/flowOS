@@ -23,3 +23,11 @@ Mark an answer resolved only with the company contact, date and evidence. These 
 - Invoice volume, file formats, Arabic/English mix, scan quality and expected concurrent users?
 - What are the warehouse's locations, stock units, approval steps and existing source of truth?
 - Which CEO and department metrics have owners, formulas and refresh requirements?
+
+## Proposed demo workflows to validate
+
+- Which products use fixed versus measured or estimated unit conversions? Who verifies factors, packaging changes and fractional quantities?
+- When do stock reservation, supplier fulfilment, customer invoicing and supplier debt actually occur? How are shortages, returns and cancellations handled?
+- Are supplier due dates fixed independently of customer collections? Would a collection-linked funding recommendation be useful, and who approves actual payments?
+- Who may record versus verify customer receipts, and how are duplicate references, currency, tax and allocation rules determined?
+- Which employee, manager and executive scopes are appropriate? Does task completion require review, return or reassignment in their real workflow?

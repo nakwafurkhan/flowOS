@@ -1,10 +1,10 @@
 # Durrar Masagh | Credit demo and platform plan
 
-**Status:** discovery and demo planning. The company develops software on ERPNext/Frappe; its configuration, data sources, workflows and future stack have not been confirmed. The repo contains no application code yet.
+**Status:** interactive front-end demo and UX plan. The company develops software on ERPNext/Frappe; its configuration, data sources, workflows and future stack have not been confirmed.
 
 ## Aim
 
-Present a credible, read-only credit balance demo using **synthetic records**. After the demo gets a green light, discover its actual processes and propose a private, locally hosted operations platform in stages. The demo must never imply that its numbers are live company balances.
+Present a connected operations demo using **synthetic records**. Browser-only changes demonstrate quotations, stock, receipts and task review across three roles. After the demo gets a green light, discover actual processes and validate a private, locally hosted pilot. No company records are connected.
 
 ## Read in this order
 
@@ -20,4 +20,15 @@ Accepted decisions in [DECISIONS.md](DECISIONS.md) take precedence over proposal
 
 ## Current next step
 
-Build the synthetic credit demo under `DEMO-001` after its small acceptance contract is reviewed. The wider roadmap is a sequence of hypotheses, not a commitment to implement every module.
+Read [the complete UX/UI plan](docs/DEMO_UX_PLAN.md), including comparison tables, permissions, 20 screen wireframes and the five-minute script.
+
+## Run the demo
+
+```sh
+python3 -m http.server 4174 --bind 127.0.0.1 --directory demo
+node demo/checks.mjs
+```
+
+Open `http://127.0.0.1:4174`. Select Mona, Khalid or Sara. Data persists in browser session storage; the Demo guide includes a reset. Core controls support Arabic/RTL; mock assistant prose and the presenter script are English. Permissions are simulated in the browser and require server enforcement before production.
+
+Source: `demo/index.html`, `styles.css`, `model.mjs`, `app.mjs`. No dependencies or build step. The private Sites manifest points at `demo/`; never place real company data there.
