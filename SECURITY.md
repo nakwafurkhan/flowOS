@@ -1,30 +1,7 @@
-# Security and Data Handling
+# Security and data handling
 
-## Data classification
+The demo uses synthetic data. Do not put real customer names, balances, invoices, identifiers, credentials or company screenshots in the repository, presentation, public AI tools or issue tracker.
 
-Customer balances, invoices, payment history, tax IDs and account
-credentials are confidential business information.
+For any real-data pilot, obtain company approval for the environment, data set, retention and people with access. Require individual accounts, server-side role and record permissions, least-privilege source credentials, encrypted transport and storage, audited access, backup/restore tests and a documented incident owner. Keep secrets outside source code. Treat uploaded files as hostile: size/type limits, malware checks, isolated parsing, and no executable content. Review OCR errors before extracted fields affect financial output.
 
-## Rules
-
--   Never commit credentials or `.env` files.
--   Use a dedicated least-privilege ERPNext integration account.
--   Keep credentials on the server side.
--   Enforce backend authentication and authorisation.
--   Use HTTPS.
--   Validate query inputs and limit returned fields/records.
--   Apply timeouts, rate limits and safe error messages.
--   Do not pass secrets or unnecessary customer data to an LLM provider.
--   Confirm company policy and provider data-handling terms before using
-    live financial data with any AI model.
--   Use synthetic or anonymised fixtures in tests, prompts and
-    screenshots.
--   Do not log full invoice payloads or credentials.
--   Report a suspected credential exposure immediately, rotate affected
-    credentials and follow the company's incident process.
-
-## Security gate
-
-Production credentials and real data must not be connected until the
-owner approves the access model, data-handling policy and security
-review.
+A local model does not automatically guarantee privacy. Verify network egress, logs, model/runtime supply chain, update path, admin access and backup destinations. Test that a user cannot retrieve another role's document through search, citation links or direct APIs. Test prompt injection in invoice text and require evidence-backed answers.

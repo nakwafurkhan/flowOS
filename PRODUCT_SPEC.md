@@ -1,116 +1,33 @@
-# Product Specification --- Credit Balance Check Bot
+# Product specification
 
-**Status:** Draft for owner review. Derived from the supplied REA
-investigation; not all reference findings have been independently
-verified.
+**Status:** expanded demo contract; company workflows unverified. The user's 31 October 2026 brief and request to rebuild authorise the browser simulation described in [DEMO_UX_PLAN.md](docs/DEMO_UX_PLAN.md), which supersedes the earlier credit-only demo scope below.
 
-## 1. Core user journey
+## Current interactive scope
 
-1.  An authorised employee asks a natural-language question or enters
-    `/credit <customer>`.
-2.  The system searches ERPNext customers.
-3.  If one exact customer is identified, continue.
-4.  If multiple candidates match, display customer name, customer ID and
-    territory and ask the user to choose.
-5.  Retrieve the approved balance/receivables information.
-6.  Display a summary with supporting invoice details.
-7.  Allow the user to drill down to relevant invoices and open the
-    matching ERPNext document, if authorised.
-8.  Show retrieval time and errors clearly.
+Three demo accounts share a fictional session dataset. Required working flows: employee follow-up and manager sign-off; mixed-unit quotation and supplier shortage selection; simulated send and one-time sale conversion; partial customer receipts and linked supplier recommendations; product creation and stock receipts; scoped dashboards and a mock assistant with record links. Supplier due dates remain independent of collections. See the UX plan for permissions, field rules, exact examples and acceptance cases.
 
-## 2. Initial capabilities
+The following original credit requirements remain correctness constraints. Warehouse, quotation and dashboard capabilities are now interactive simulations; invoice OCR/local AI remain future concepts.
 
-### Customer search
+## Credit demo, first presentation
 
--   Search by customer name or ID; tax ID search only if approved and
-    available.
--   Exact ID match takes priority.
--   Return a limited number of candidates.
--   Never silently choose between ambiguous matches.
+Use a small synthetic dataset with at least: two similarly named customers, one zero balance, two currencies, partially paid and overdue invoices, a missing credit limit, and an unavailable-source case. The UI should allow search, explicit customer selection, balance and unpaid invoice viewing, and a visible as-of time and source label. Show invoice number, due date, outstanding amount and currency. Totals are computed from structured records and tested. Do not combine currencies or calculate available credit until a company-approved policy exists. A conversational interface may be added only if it improves the demo; deterministic search and answer templates are enough to demonstrate trust.
 
-### Balance summary
+Each demo screen and presentation must say **Synthetic demo data — not connected to Durrar Masagh systems**. No sign-in to company systems, invoice upload or external model call is required for this phase.
 
-Potential fields: - Customer name and ID. - Currency. - Outstanding
-balance from the approved ERPNext source/report. - Count of unpaid
-invoices. - Configured credit limit, if present. - Exposure breakdown,
-only after its included components are agreed. - Available credit, only
-after the business calculation is approved. - Data retrieval timestamp
-and source.
+## Presentation preview, subject to discovery
 
-### Invoice ageing
+Invoice OCR and local AI are future concepts described in the architecture, not implemented services. The rebuilt demo's dashboards and warehouse workflows operate on shared fictional records. Describe its client-side access rules as a simulation; do not imply production authentication.
 
--   List unpaid invoices with invoice number, posting date, due date,
-    outstanding amount, currency and days overdue.
--   Agree the ageing basis and buckets with the finance owner.
--   Missing due dates must be shown as unknown, not silently classified.
--   Keep totals reconcilable to the selected ERPNext report and filter
-    settings.
+## Candidate production capabilities, subject to discovery
 
-### Drill-down
+- Private invoice intake: local upload, malware/type checks, document storage, OCR/extraction, human review, versioning and retention.
+- Credit enquiry: reconcile balances to the accounting system, show sources and freshness, handle disputes and multi-currency policy.
+- Local assistant: retrieve only authorised document chunks; cite evidence; refuse unsupported financial answers; keep model output separate from computed figures.
+- Warehouse: inventory, locations, receipts, transfers and counts only after mapping their real process and system of record.
+- Role-specific dashboards: metrics defined with finance and department owners; CEO views aggregate authorised data, managers see their scope.
 
--   Display the most relevant open/overdue invoices.
--   Provide a link to the ERPNext document only if the user has access.
--   Do not expose internal invoice data to unauthorised users.
+These are hypotheses. Do not encode a particular ERP, credit formula, warehouse workflow or department hierarchy as fact.
 
-### Errors and empty states
+## Acceptance before real-data pilot
 
--   Customer not found: suggest checking the name or ID.
--   Ambiguous result: request a selection.
--   Zero balance: report zero only when supported by the data.
--   Missing credit limit: say it is not configured/available.
--   Permission failure: report an access issue without leaking sensitive
-    details.
--   Timeout or ERPNext failure: say data could not be retrieved; do not
-    reuse stale values without a visible timestamp.
-
-## 3. Credit status
-
-The supplied investigation proposes Good Standing / Warning / Blocked
-indicators and a 20% buffer threshold. This is **not approved business
-policy yet**. Before implementation, the owner/finance team must
-confirm: - What constitutes exposure (invoices, deliveries, open orders,
-advances/unallocated payments, etc.). - Which company-specific credit
-limit applies. - Whether the ERPNext bypass flag changes only the
-warning or the bot's displayed status. - Whether "blocked" is
-informational or implies an actual ERPNext block. - Currency conversion
-rules. - What the 20% threshold means and whether it should exist.
-
-Until approved, the bot must not present a computed credit status as an
-authoritative decision.
-
-## 4. Data and calculation rules
-
--   Prefer the authoritative ERPNext Accounts Receivable report/approved
-    server-side source for receivables.
--   Do not sum overlapping sources and accidentally double-count.
--   Do not calculate total exposure from invoices alone if the approved
-    policy includes orders or unbilled deliveries.
--   Do not mix currencies.
--   Document date filters, company, party type, report filters and any
-    accounting dimensions that affect the result.
--   Test partial payments, credit notes, advances, write-offs, returns,
-    cancelled invoices and multi-currency records as applicable to the
-    company's configuration.
-
-## 5. Access and audit
-
--   Internal users only for the MVP.
--   Backend authentication and authorisation required.
--   Read-only ERPNext integration.
--   Record operational audit events without unnecessarily logging
-    customer financial data.
--   A future WhatsApp/customer-facing channel requires a separate
-    security and identity review.
-
-## 6. Out of scope unless approved
-
--   Creating or editing invoices/payments.
--   Credit approvals or automatic sales blocks.
--   Automated payment reminders.
--   Customer self-service.
--   Forecasting or scoring customers using opaque AI reasoning.
-
-## 7. Open acceptance decisions
-
-See `docs/OPEN_QUESTIONS.md` before turning this draft into an
-implementation contract.
+A finance owner signs off the source of truth, calculation examples and reconciliation tolerance; a security owner signs off roles, isolation, retention and backup; users validate real tasks; and the company approves the pilot data set and environment.

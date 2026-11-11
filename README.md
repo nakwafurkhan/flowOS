@@ -1,47 +1,44 @@
-# Credit Balance Check Bot --- Project Control Centre
+# Durrar Masagh | Credit demo and platform plan
 
-This repository is the shared source of truth for the project. It is
-intentionally a **planning and governance pack**, not an implementation.
-No application code has been built by this pack.
+**Status:** interactive front-end demo and UX plan. The company develops software on ERPNext/Frappe; its configuration, data sources, workflows and future stack have not been confirmed.
 
-## Start here
+## Aim
 
-1.  Read `PROJECT_CHARTER.md` --- the product's purpose and
-    non-negotiable principles.
-2.  Read `AGENTS.md` --- rules every AI agent and human contributor must
-    follow.
-3.  Read `PRODUCT_SPEC.md` --- approved scope and behaviours.
-4.  Read `ARCHITECTURE.md` --- proposed architecture and decisions still
-    awaiting approval.
-5.  Read `ROADMAP.md` and `TASKS.md` --- what comes next.
-6.  Read `docs/REFERENCE_INVESTIGATION.md` --- the supplied REA
-    investigation, including unverified findings.
+Present a connected operations demo using **synthetic records**. Browser-only changes demonstrate quotations, stock, receipts and task review across three roles. After the demo gets a green light, discover actual processes and validate a private, locally hosted pilot. No company records are connected.
 
-## Source-of-truth order
+## Read in this order
 
-If documents conflict, do not guess. Stop and raise the conflict in
-`docs/OPEN_QUESTIONS.md`.
+1. [PROJECT_CHARTER.md](PROJECT_CHARTER.md): purpose and enduring constraints.
+2. [AGENTS.md](AGENTS.md): contributor rules.
+3. [PRODUCT_SPEC.md](PRODUCT_SPEC.md): demo contract and later hypotheses.
+4. [ARCHITECTURE.md](ARCHITECTURE.md): boundaries and proposed on-premise shape.
+5. [ROADMAP.md](ROADMAP.md): detailed phases and exit gates.
+6. [TASKS.md](TASKS.md): next concrete work.
+7. [docs/OPEN_QUESTIONS.md](docs/OPEN_QUESTIONS.md): discovery questions.
+8. [docs/SCALE_PLAN.md](docs/SCALE_PLAN.md): staged production scaling plan.
+9. [docs/ON_PREMISE_SERVER_PLAN.md](docs/ON_PREMISE_SERVER_PLAN.md): company-owned server, database and sensitive-data deployment plan.
 
-1.  `PROJECT_CHARTER.md` --- purpose and hard constraints.
-2.  `DECISIONS.md` --- explicitly accepted decisions.
-3.  `PRODUCT_SPEC.md` --- expected product behaviour.
-4.  `ARCHITECTURE.md` --- technical design.
-5.  `TASKS.md` --- current task status.
-6.  `docs/REFERENCE_INVESTIGATION.md` --- research evidence, not
-    automatically approved requirements.
-7.  Chat messages and agent assumptions --- not authoritative unless
-    recorded in the repository.
+Accepted decisions in [DECISIONS.md](DECISIONS.md) take precedence over proposals. Unanswered questions are not requirements. The old ERPNext investigation was removed because it concerned a public demo instance, not this company's confirmed environment; it remains in Git history if needed.
 
-## Current state
+## Current next step
 
-**Status: PRE-IMPLEMENTATION / PLANNING.**
+Read [the complete UX/UI plan](docs/DEMO_UX_PLAN.md), including comparison tables, permissions, 20 screen wireframes and the five-minute script.
 
-Do not start application implementation, connect to live ERPNext, create
-API credentials, or modify production data until the owner explicitly
-approves the relevant phase.
+## Try the demo
 
-## First human action
+- [Vercel production demo](https://demo-nine-phi-86.vercel.app) (Vercel sign-in may be required)
+- [Private Sites demo](https://durrar-masagh-ops-demo.jetberry1.chatgpt.site)
+- [GitHub branch](https://github.com/nakwafurkhan/flowOS/tree/codex/demo-redesign)
 
-Review the charter, product specification, architecture proposal and
-open questions. Edit them or approve them before starting
-implementation.
+The demo uses fictional data only. It is a presentation prototype, not a connection to company systems.
+
+## Run the demo
+
+```sh
+python3 -m http.server 4174 --bind 127.0.0.1 --directory demo
+node demo/checks.mjs
+```
+
+Open `http://127.0.0.1:4174`. Select Mona, Khalid or Sara. Data persists in browser session storage; the Demo guide includes a reset. Core controls support Arabic/RTL; mock assistant prose and the presenter script are English. Permissions are simulated in the browser and require server enforcement before production.
+
+Source: `demo/index.html`, `styles.css`, `model.mjs`, `app.mjs`. No dependencies or local build step. For private hosting, `node demo/build.mjs` copies these four files into ignored `dist/`, the Sites output directory. Never place real company data there.

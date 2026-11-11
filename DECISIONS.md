@@ -1,54 +1,23 @@
-# Architecture and Product Decision Log
+# Decision log
 
-Record decisions that affect scope, behaviour, security, dependencies or
-architecture. New entries are proposed until explicitly marked
-`ACCEPTED` by the owner.
+Record decisions when a real implementation choice needs review. Do not add speculative proposals in advance.
 
-## Decision template
+## How to use
 
-### DEC-XXX --- Short title
+1. Add the next `DEC-XXX` entry when the choice arises.
+2. Describe the context, evidence, options, proposed choice and consequences.
+3. Mark it `PROPOSED` until a named owner approves it. Record the approver and date when changing it to `ACCEPTED`.
+4. Use `REJECTED` or `SUPERSEDED` when appropriate; retain the history.
 
--   **Status:** PROPOSED / ACCEPTED / REJECTED / SUPERSEDED
--   **Date:**
--   **Owner/approver:**
--   **Context:**
--   **Options considered:**
--   **Decision:**
--   **Consequences and risks:**
--   **Follow-up tasks:**
+## Template
 
-------------------------------------------------------------------------
+### DEC-XXX — Title
 
-## DEC-001 --- Keep the initial ERPNext integration read-only
-
--   **Status:** PROPOSED
--   **Context:** The bot handles sensitive financial information;
-    accidental writes would be high impact.
--   **Options considered:** Read-only first; read/write integration.
--   **Decision:** Proposed read-only access for the MVP.
--   **Consequences and risks:** The bot cannot create reminders or
-    change accounting records. Those features require a separate review
-    and decision.
-
-## DEC-002 --- Financial figures must be grounded in ERPNext data
-
--   **Status:** PROPOSED
--   **Context:** LLM-generated numbers are not acceptable as accounting
-    truth.
--   **Options considered:** Ask the model to calculate from text;
-    deterministic service using validated source data.
--   **Decision:** Proposed deterministic calculation/retrieval with the
-    LLM limited to intent selection and explanation.
--   **Consequences and risks:** More explicit schemas and tests are
-    required, but results are auditable.
-
-## DEC-003 --- Use React/Vite + Node/Express as the initial technical proposal
-
--   **Status:** PROPOSED
--   **Context:** A web chat plus backend can keep ERPNext credentials
-    out of the browser.
--   **Options considered:** Web app, messaging bot, direct
-    client-to-ERPNext.
--   **Decision:** Proposed web MVP; final stack requires owner approval.
--   **Consequences and risks:** Messaging integrations and persistence
-    can be added later if approved.
+- **Status:** PROPOSED
+- **Date:**
+- **Owner / approver:**
+- **Context and evidence:**
+- **Options considered:**
+- **Proposed decision:**
+- **Consequences and risks:**
+- **Follow-up tasks:**

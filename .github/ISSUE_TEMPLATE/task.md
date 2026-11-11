@@ -1,33 +1,24 @@
 ---
-about: A scoped, reviewable unit of work
-labels: task
 name: Project task
-title: \[TASK\]
+about: A scoped, reviewable unit of work
+title: "[TASK] "
+labels: task
 ---
 
 ## Goal
 
-What outcome should this task deliver?
+## Source of truth and assumptions
 
-## Context / source of truth
+## In scope
 
-Link relevant charter/spec/decision/research document sections.
-
-## Scope
-
-## \### In scope
-
-## \### Out of scope
+## Out of scope
 
 ## Acceptance criteria
 
--   \[ \]
--   \[ \]
+- [ ]
 
-## \## Dependencies
+## Dependencies and owner
 
-## \## Security / data considerations
+## Security and data considerations
 
-## \## Test plan
-
-## \## Reviewer / approver
+## Checks and reviewer
