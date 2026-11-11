@@ -24,6 +24,14 @@ Accepted decisions in [DECISIONS.md](DECISIONS.md) take precedence over proposal
 
 Read [the complete UX/UI plan](docs/DEMO_UX_PLAN.md), including comparison tables, permissions, 20 screen wireframes and the five-minute script.
 
+## Try the demo
+
+- [Vercel production demo](https://demo-nine-phi-86.vercel.app) (Vercel sign-in may be required)
+- [Private Sites demo](https://durrar-masagh-ops-demo.jetberry1.chatgpt.site)
+- [GitHub branch](https://github.com/nakwafurkhan/flowOS/tree/codex/demo-redesign)
+
+The demo uses fictional data only. It is a presentation prototype, not a connection to company systems.
+
 ## Run the demo
 
 ```sh
