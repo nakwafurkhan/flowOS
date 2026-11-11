@@ -11,5 +11,6 @@
 | PILOT-001 | Approve private real-data pilot | BLOCKED | Company signs off sample data, environment, access, source rules and success metrics; depends on DISC-001. |
 | PLATFORM-001 | Select and benchmark local stack | BLOCKED | OCR/model accuracy, latency, capacity, costs, backup and security evidence; depends on DISC-001. |
 | SCALE-001 | Validate production scale foundation | BACKLOG | Turn `docs/SCALE_PLAN.md` into an approved pilot design: contracts, identity, capacity measurements, backup/restore, security tests and deployment owner; depends on DISC-001. |
+| ONPREM-001 | Size and approve company-owned pilot server | BLOCKED | Measure volume, concurrency, RPO/RTO, network, retention and model workload; approve host, storage, backup, hardening and support plan before any sensitive data; depends on DISC-001. |
 
 For each implementation task, add an owner, acceptance examples, test and reviewer before moving it to READY. Track later modules only after discovery and a recorded decision.

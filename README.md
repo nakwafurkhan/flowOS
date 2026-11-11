@@ -16,6 +16,7 @@ Present a connected operations demo using **synthetic records**. Browser-only ch
 6. [TASKS.md](TASKS.md): next concrete work.
 7. [docs/OPEN_QUESTIONS.md](docs/OPEN_QUESTIONS.md): discovery questions.
 8. [docs/SCALE_PLAN.md](docs/SCALE_PLAN.md): staged production scaling plan.
+9. [docs/ON_PREMISE_SERVER_PLAN.md](docs/ON_PREMISE_SERVER_PLAN.md): company-owned server, database and sensitive-data deployment plan.
 
 Accepted decisions in [DECISIONS.md](DECISIONS.md) take precedence over proposals. Unanswered questions are not requirements. The old ERPNext investigation was removed because it concerned a public demo instance, not this company's confirmed environment; it remains in Git history if needed.
 
