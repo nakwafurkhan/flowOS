@@ -26,7 +26,7 @@ Read [the complete UX/UI plan](docs/DEMO_UX_PLAN.md), including comparison table
 
 ## Try the demo
 
-- [Vercel production demo](https://demo-nine-phi-86.vercel.app) (Vercel sign-in may be required)
+- [Vercel production demo](https://demo-nine-phi-86.vercel.app) (public synthetic-data demo)
 - [Private Sites demo](https://durrar-masagh-ops-demo.jetberry1.chatgpt.site)
 - [GitHub branch](https://github.com/nakwafurkhan/flowOS/tree/codex/demo-redesign)
 
